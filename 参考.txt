@@ -1,2 +1,2 @@
 https://github.com/nextjs-microcms-book/nextjs-website-sample/tree/main
-53ページから(リスト3-3-2)
+67ページから(リスト3-3-11)

@@ -1,0 +1,23 @@
+.navCards {
+    display: grid;
+    gap: 16px;
+}
+.card {
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    background: var(--color-bg-main);
+}
+
+.inner {
+    padding: 16px;
+}
+
+.title {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: var(--color-text-sub);
+}

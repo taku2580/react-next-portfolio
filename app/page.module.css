@@ -53,6 +53,14 @@
   bottom: -40px;
 }
 
+/* カードレイアウト調整 */
+.navCards {
+    width: 840px;
+    margin: 40px auto 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
 
 @media (max-width: 1000px) {
   .news {

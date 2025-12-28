@@ -4,6 +4,7 @@ import { getNewsList } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIMIT } from "./constants";
 import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
+import NavCard from "@/app/_components/NavCard";
 
 export const revalidate = 60;
 
@@ -26,6 +27,15 @@ export default async function Home() {
         height={1200}
       />
     </section>
+
+    <section>
+      <div className={styles.navCards}>
+        <NavCard href="/news" title='ニュース' description="最新の記事・お知らせ"/>
+        <NavCard href="/profile" title='プロフィール' description="経歴・趣味」"/>
+        <NavCard href="/contact" title='お問い合わせ' description="ご連絡はこちら"/>
+      </div>
+    </section>
+    
     <section className={styles.news}>
       <h2 className={styles.newsTitle}>News</h2>
       <NewsList news={data.contents} />

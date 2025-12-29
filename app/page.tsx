@@ -1,48 +1,50 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import { getNewsList } from '@/app/_libs/microcms';
+import { getNewsList } from "@/app/_libs/microcms";
 import { TOP_NEWS_LIMIT } from "./constants";
 import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
 import NavCard from "@/app/_components/NavCard";
+import HoverSwapLink from "./_components/HoverSwapLink";
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const data = await getNewsList({
-    limit: TOP_NEWS_LIMIT,
-  });
   return (
-   <>
-    <section className={styles.top}>
-      <div>
-        <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
-        <p className={styles.description}>私たちは市場をリードしているグローバルテックカンパニーです。</p>
+    <main className={styles.main}>
+      <div className={styles.titleContainer}>
+        <h1 className={styles.title}>Welcome to My Portfolio</h1>
+      </div>
+      <div className={styles.navigation}>
+        <nav className={styles.nav}>
+          <HoverSwapLink
+            href="/profile"
+            label="Profile"
+            hoverLavel="プロフィール"
+            className={styles.navLink}
+          />
+          <HoverSwapLink
+            href="/news"
+            label="News"
+            hoverLavel="ブログ・作品"
+            className={styles.navLink}
+          />
+          <HoverSwapLink
+            href="/contact"
+            label="Contact"
+            hoverLavel="お問い合わせ"
+            className={styles.navLink}
+          />
+        </nav>
       </div>
       <Image
-        className={styles.bgimg}
-        src="https://tools.arashichang.com/300"
+        className={styles.bgImage}
+        src="/pexels-pixabay-164175.jpg"
         alt=""
-        width={4000}
-        height={1200}
+        fill
+        priority
+        quality={90}
       />
-    </section>
-
-    <section>
-      <div className={styles.navCards}>
-        <NavCard href="/news" title='ニュース' description="最新の記事・お知らせ"/>
-        <NavCard href="/profile" title='プロフィール' description="経歴・趣味」"/>
-        <NavCard href="/contact" title='お問い合わせ' description="ご連絡はこちら"/>
-      </div>
-    </section>
-    
-    <section className={styles.news}>
-      <h2 className={styles.newsTitle}>News</h2>
-      <NewsList news={data.contents} />
-      <div className={styles.newsLink}>
-        <ButtonLink href="/news">もっとみる</ButtonLink>
-      </div>
-    </section>
-   </>
+    </main>
   );
 }

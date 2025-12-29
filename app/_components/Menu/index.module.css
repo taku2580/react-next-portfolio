@@ -1,7 +1,7 @@
 .items {
     display: flex;
-    color: #fff;
-    gap: 40px;
+    color: var(--color-text-unpainted);
+    gap: var(--spacing-lg);
 }
 
 .button {
@@ -26,9 +26,8 @@
 
     .close {
         position: absolute;
-        top: 24px;
-        right: 16px;
-
+        top: var(--spacing-md);
+        right: var(--spacing-sm);
     }
 
     .nav.open {
@@ -40,15 +39,11 @@
         bottom: 0;
         background-color: var(--color-bg-painted);
         color: var(--color-text-unpainted);
-        padding: 24px 16px;
+        padding: var(--spacing-md) var(--spacing-sm);
     }
 
     .items {
         flex-direction: column;
-        gap: 24px;
+        gap: var(--spacing-md);
     }
-
-      .themeToggle {
-    margin-top: 16px;
-  }
 }

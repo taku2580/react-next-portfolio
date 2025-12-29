@@ -1,8 +1,22 @@
 .container {
-    position: relative;
-    background-color: var(--color-bg-main);
-    width: 840px;
-    margin: -40px auto 0;
-    padding: 80px;
-    border-radius: 8px;
+  position: relative;
+  background-color: var(--color-bg-main);
+  max-width: var(--container-width);
+  width: 100%;
+  margin: calc(var(--spacing-xl) * -1) auto 0;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-radius: var(--border-radius);
+}
+
+@media (max-width: 1240px) {
+  .container {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
 }

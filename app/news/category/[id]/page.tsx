@@ -4,6 +4,8 @@ import NewsList from '@/app/_components/NewsList';
 import Pagination from '@/app/_components/Pagination';
 import Category from '@/app/_components/Category';
 import { NEWS_LIST_LIMIT } from '@/app/constants';
+import NewsTabs from '@/app/_components/NewsTabs';
+import SearchField from '@/app/_components/SearchField';
 
 type Props = {
     params: {
@@ -24,6 +26,8 @@ export default async function Page({ params }: Props) {
             <p>
                 <Category category={category} />の一覧
             </p>
+            <NewsTabs />
+            <SearchField />
             <NewsList news={news} />
             <Pagination
                 totalCount={totalCount}

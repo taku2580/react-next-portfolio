@@ -3,108 +3,106 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0,0,0,0.5);
-  color: #fff;
+  background-color: var(--color-bg-overlay);
+  color: var(--color-text-unpainted);
   overflow: hidden;
-  padding: 200px 0;
+  min-height: 80vh;
+  padding: var(--spacing-xxl) var(--spacing-md);
 }
 
 .title {
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: var(--font-size-xl);
+  font-weight: 300;
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.02em;
 }
 
 .description {
   text-align: center;
+  font-size: 1.125rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
 }
 
 .bgimg {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 100%;
-  height: 600px;
+  height: 100%;
   object-fit: cover;
-  object-position: right;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-position: center;
   z-index: -1;
 }
 
 .news {
   position: relative;
-  background-color: #fff;
-  width: 840px;
-  margin: -40px auto 0;
-  padding: 24px 40px;
-  border-radius:var(--border-radius);
+  background-color: var(--color-bg-main);
+  max-width: var(--container-max);
+  width: 100%;
+  margin: calc(var(--spacing-xl) * -1) auto 0;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
 }
 
 .newsTitle {
-  font-size: 1.5rem;
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  margin-bottom: var(--spacing-lg);
 }
 
 .newsLink {
-  position: absolute;
-  right: -40px;
-  bottom: -40px;
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
 }
 
 /* カードレイアウト調整 */
 .navCards {
-    width: 840px;
-    margin: 40px auto 40px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
+  max-width: var(--container-max);
+  width: 100%;
+  margin: var(--spacing-xl) auto;
+  padding: 0 var(--spacing-md);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-md);
 }
 
-@media (max-width: 1000px) {
-  .news {
-    width: calc(100% - 160px);
+@media (max-width: 1240px) {
+  .news,
+  .navCards {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .top {
-    padding: 120px 16px;
+    min-height: 60vh;
+    padding: var(--spacing-xl) var(--spacing-md);
   }
+  
   .title {
-    font-size: 2rem;
-    text-align: left;
+    font-size: 2.5rem;
   }
 
   .description {
-    text-align: center;
-    font-size: 0.9rem;
-    text-align: left;
+    font-size: 1rem;
   }
 
-  .bgimg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: auto;
-    height: 600px;
-    object-fit: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
-}
-.news {
-  width: calc(100% -32px);
-  padding: 16px 24px;
+  .news {
+    margin-top: calc(var(--spacing-lg) * -1);
+    padding: var(--spacing-lg) var(--spacing-md);
   }
-
-
-.newsLink {
-  position: relative;
-  right: auto;
-  bottom: auto;
-  margin-top: 16px;
+  
+  .newsTitle {
+    font-size: 1.5rem;
+  }
+  
+  .navCards {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
   }
 }

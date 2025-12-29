@@ -21,7 +21,7 @@ export default async function Home() {
       </div>
       <Image
         className={styles.bgimg}
-        src="/img-mv.jpg"
+        src="https://tools.arashichang.com/300"
         alt=""
         width={4000}
         height={1200}

@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import cx from "classnames";
 import styles from "./index.module.css";
+import ThemeToggle from "../ThemeToggle";
 
 export default function Menu() {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -22,6 +23,9 @@ export default function Menu() {
           </li>
           <li>
             <Link href="/contact">お問い合わせ</Link>
+          </li>
+          <li className={styles.themeToggle}>
+            <ThemeToggle />
           </li>
         </ul>
         <button className={cx(styles.button, styles.close)} onClick={close}>

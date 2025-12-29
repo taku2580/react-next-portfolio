@@ -2,6 +2,7 @@ import { getNewsList } from '@/app/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/app/constants';
 import NewsList from '@/app/_components/NewsList';
 import SearchField from '@/app/_components/SearchField';
+import NewsTabs from '@/app/_components/NewsTabs';
 
 type Props = {
     searchParams: {
@@ -17,6 +18,7 @@ export default async function Page({searchParams}: Props) {
 
     return (
         <>
+            <NewsTabs />
             <SearchField />
             <NewsList news={news} />
         </> 

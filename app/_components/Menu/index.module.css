@@ -8,6 +8,10 @@
     display: none;
 }
 
+.themeToggle {
+  display: inline-flex;
+}
+
 @media (max-width: 640px) {
     .nav {
         display: none;
@@ -43,4 +47,8 @@
         flex-direction: column;
         gap: 24px;
     }
+
+      .themeToggle {
+    margin-top: 16px;
+  }
 }

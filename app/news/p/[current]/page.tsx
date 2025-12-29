@@ -3,6 +3,7 @@ import { getNewsList } from "@/app/_libs/microcms";
 import NewsList from '@/app/_components/NewsList';
 import Pagination from '@/app/_components/Pagination';
 import { NEWS_LIST_LIMIT } from '@/app/constants';
+import NewsTabs from "@/app/_components/NewsTabs";
 
 type Props = {
     params: {
@@ -28,6 +29,7 @@ export default async function Page({ params }: Props) {
 
     return (
         <>
+            <NewsTabs />
             <NewsList news={news} />
             <Pagination totalCount={totalCount} current={current} />
         </>

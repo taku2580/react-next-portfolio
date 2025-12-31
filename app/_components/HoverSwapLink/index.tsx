@@ -1,44 +1,43 @@
 "use client";
 
-import { useState } from "react";
-import clsx from "classnames";
 import styles from "./index.module.css";
 import Link from "next/link";
 
 type Props = {
   href: string;
   label: string;
-  hoverLavel?: string;
-  hoverLabel?: string
+  hoverLabel?: string;
   className?: string;
   ariaLabel?: string;
+  disableLink?: boolean;
 };
 
 export default function HoverSwapLink({
   href,
   label,
-  hoverLavel,
   hoverLabel,
   className,
   ariaLabel,
+  disableLink,
 }: Props) {
-    const [active, setActive] = useState(false);
-    const hoverText = hoverLabel ?? hoverLavel ?? "";
+  const classNames = `${styles.link} ${className ? `${className}` : ""}`;
+
+  if (disableLink) {
+    return (
+      <span className={classNames} aria-label={ariaLabel ?? label}>
+        <span className={styles.text}>{label}</span>
+        <span className={styles.hoverText} aria-hidden="true">
+          {hoverLabel}
+        </span>
+      </span>
+    );
+  }
 
   return (
-    <Link
-      href={href}
-      className={clsx(styles.link, className)}
-      aria-label={ariaLabel ?? label}
-      data-active={active ? "true" : "false"}
-      onPointerEnter={() => setActive(true)}
-      onPointerLeave={() => setActive(false)}
-      onFocus={() => setActive(true)}
-      onBlur={() => setActive(false)}
-    >
+    <Link href={href} className={classNames} aria-label={ariaLabel ?? label}>
       <span className={styles.text}>{label}</span>
       <span className={styles.hoverText} aria-hidden="true">
-        {hoverText}
+        {hoverLabel}
       </span>
     </Link>
   );

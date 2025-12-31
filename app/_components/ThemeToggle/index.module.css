@@ -1,14 +1,38 @@
 .button {
-  display: inline-flex;
+  position: relative;
+  width: 52px;
+  height: 28px;
+  padding: 2px;
+  border-radius: 999px;
+  background-color: #fff;
+  border: 1px solid var(--color-border-light);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.knob {
+  width: 24px;
+  height: 24px;
+  color: currentColor;
+  background-color: #000;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: var(--border-radius);
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: inherit;
-  cursor: pointer;
+  transform: translateX(0);
+  transition: transform 0.3s;
+}
+
+html[data-theme='dark'] .knob {
+  transform: translateX(23px);
+  background-color: #fff;
+  border: 1px solid #000;
+  color: #000
+  
+}
+
+html[data-theme='dark'] .button {
+  background-color: #000;
 }
 
 .button:disabled {
@@ -27,8 +51,13 @@
 }
 
 .svg {
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
+  color: #fff;
+}
+
+html[data-theme='dark'] .svg {
+  color: #000;
 }
 
 .srOnly {

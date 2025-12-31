@@ -8,74 +8,95 @@ type Theme = "light" | "dark";
 const STORAGE_KEY = "theme";
 
 function getPreferredTheme(): Theme {
-    return window.matchMedia?.("(prefers-color-scheme: dark)").matches 
-    ? "dark" : "light";
+  return window.matchMedia?.("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
 }
 
 function readStoredTheme(): Theme | null {
-    const value = window.localStorage.getItem(STORAGE_KEY);
-    if (value === "light" || value === "dark") return value;
-    return null;
+  const value = window.localStorage.getItem(STORAGE_KEY);
+  if (value === "light" || value === "dark") return value;
+  return null;
 }
 
 function applyTheme(theme: Theme) {
-    document.documentElement.dataset.theme = theme;
+  document.documentElement.dataset.theme = theme;
 }
 
 export default function ThemeToggle() {
-    const [ theme, setTheme ] = useState<Theme | null>(null);
+  const [theme, setTheme] = useState<Theme | null>(null);
 
-    useEffect(() => {
-        const stored = readStoredTheme();
-        const initial = stored ?? getPreferredTheme();
-        setTheme(initial);
-        applyTheme(initial);
-    }, []);
+  useEffect(() => {
+    const stored = readStoredTheme();
+    const initial = stored ?? getPreferredTheme();
+    setTheme(initial);
+    applyTheme(initial);
+  }, []);
 
-    const isDark = theme === "dark";
-    const nextTheme: Theme = isDark ? "light" : "dark";
+  const isDark = theme === "dark";
+  const nextTheme: Theme = isDark ? "light" : "dark";
 
-    const label = useMemo(() =>{
-        if (theme === null) return "テーマを切り替える";
-        return nextTheme === "dark"
-        ? "ダークモードに切り替える"
-        : "ライトモードに切り替える"
-    }, [nextTheme, theme]);
+  const label = useMemo(() => {
+    if (theme === null) return "テーマを切り替える";
+    return nextTheme === "dark"
+      ? "ダークモードに切り替える"
+      : "ライトモードに切り替える";
+  }, [nextTheme, theme]);
 
-    const onToggle = () => {
-        if (theme === null) return;
-        setTheme(nextTheme);
-        window.localStorage.setItem(STORAGE_KEY, nextTheme);
-        applyTheme(nextTheme);
-    };
+  const onToggle = () => {
+    if (theme === null) return;
+    setTheme(nextTheme);
+    window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    applyTheme(nextTheme);
+  };
 
-    return (
-        <button 
-          type="button"
-          className={styles.button}
-          onClick={onToggle}
-          aria-label={label}
-          aria-pressed={isDark}
-          disabled={theme === null}
-          >
-            <span className={styles.icon} aria-hidden="true">
-                {nextTheme === "dark" ? (
-          		  <svg viewBox="0 0 24 24" className={styles.svg}>
-					<path
-              		  fill="currentColor"
-              		  d="M21.64 13a9 9 0 1 1-10.63-10.63 7 7 0 1 0 10.63 10.63Z"
-            		/>
-          		  </svg>
-            	) : (
-                  <svg viewBox="0 0 24 24" className={styles.svg}>
-                    <path
-                      fill="currentColor"
-                      d="M12 4.354a7.646 7.646 0 1 0 7.646 7.646A7.655 7.655 0 0 1 12 4.354Z"
-                    />
-                 </svg>
-            	)}
-            </span>
-            <span className={styles.srOnly}>{label}</span>
-          </button>
-    );
+  return (
+    <button
+      type="button"
+      className={styles.button}
+      onClick={onToggle}
+      aria-label={label}
+      aria-pressed={isDark}
+      disabled={theme === null}
+    >
+      <span className={styles.knob}>
+        <span className={styles.icon} aria-hidden="true">
+          {nextTheme === "dark" ? (
+            <svg
+              viewBox="0 0 24 24"
+              className={styles.svg}
+              fill="currentColor"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg>
+          ) : (
+            <svg
+              viewBox="0 0 24 24"
+              className={styles.svg}
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="12" cy="12" r="5" />
+              <line x1="12" y1="1" x2="12" y2="3" />
+              <line x1="12" y1="21" x2="12" y2="23" />
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+              <line x1="1" y1="12" x2="3" y2="12" />
+              <line x1="21" y1="12" x2="23" y2="12" />
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </svg>
+          )}
+        </span>
+      </span>
+      <span className={styles.srOnly}>{label}</span>
+    </button>
+  );
 }

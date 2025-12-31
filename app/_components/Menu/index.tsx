@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import cx from "classnames";
 import styles from "./index.module.css";
-import ThemeToggle from "../ThemeToggle";
+import HoverSwapLink from "../HoverSwapLink";
 
 export default function Menu() {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -16,16 +16,28 @@ export default function Menu() {
       <nav className={cx(styles.nav, isOpen && styles.open)}>
         <ul className={styles.items}>
           <li>
-            <Link href="/news">ニュース</Link>
+            <HoverSwapLink
+              href="/news"
+              label="News"
+              hoverLabel="ブログ・作品"
+              className={styles.link}
+            />
           </li>
           <li>
-            <Link href="/profile">プロフィール</Link>
+            <HoverSwapLink
+              href="/profile"
+              label="Profile"
+              hoverLabel="プロフィール"
+              className={styles.link}
+            />
           </li>
           <li>
-            <Link href="/contact">お問い合わせ</Link>
-          </li>
-          <li className={styles.themeToggle}>
-            <ThemeToggle />
+            <HoverSwapLink
+              href="/contact"
+              label="Contact"
+              hoverLabel="お問い合わせ"
+              className={styles.link}
+            />
           </li>
         </ul>
         <button className={cx(styles.button, styles.close)} onClick={close}>

@@ -15,7 +15,7 @@ export default function Hero({ title, sub}: Props) {
             </div>
             <Image 
              className={styles.bgimg}
-             src='https://tools.arashichang.com/300'
+             src='/pexels-pixabay-164175.jpg'
              alt=''
              width={4000}
              height={1200}

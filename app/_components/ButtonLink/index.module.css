@@ -6,7 +6,7 @@
     background:
         var(--color-button-primary);
     color: #fff;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-md);
 }
 
 html[data-theme="dark"] .button {

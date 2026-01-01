@@ -40,7 +40,7 @@ export default async function Home() {
         <div className={styles.sectionHeader}>
           <h2 className={styles.sectionTitle}>News</h2>
           <div className={styles.sectionActions}>
-            <ButtonLink href="/news">More</ButtonLink>
+            <ButtonLink href="/news">もっと見る</ButtonLink>
           </div>
         </div>
 

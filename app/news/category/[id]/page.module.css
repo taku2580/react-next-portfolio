@@ -1,0 +1,27 @@
+.sectionTitle {
+  position: relative;
+  font-size: var(--font-size-xl);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-md);
+}
+
+.sectionTitle::before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-right: var(--spacing-sm);
+  border-radius: 9999px;
+  background-color: var(--color-current);
+  vertical-align: middle;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 72px;
+  height: 2px;
+  background-color: var(--color-current);
+}

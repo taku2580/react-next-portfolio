@@ -1,96 +1,186 @@
-.list { 
-    border-bottom: 1px solid var(--color-border-light);
+.listContainer:hover .link {
+  opacity: 0.55;
+}
+
+.listContainer:hover .link:hover,
+.listContainer:hover .link:focus-visible {
+  opacity: 1;
+}
+
+.list {
+  border-bottom: 1px solid var(--color-border-light);
 }
 .list:last-child {
-    border-bottom:none;
+  border-bottom: none;
+}
+
+.content {
+  display: grid;
+  gap: 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.grid .list {
+  border-bottom: none;
 }
 
 .link {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    gap: 40px;
-    padding: 24px var(--spacing-sm);
-    border-radius: var(--border-radius-lg);
-    transition: transform var(--transition-speed), background-color var(--transition-speed);
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 24px var(--spacing-sm);
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: transform var(--transition-speed),
+    background-color var(--transition-speed), opacity var(--transition-speed);
 }
 
 .link::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 12px;
-    bottom: 12px;
-    width: 2px;
-    background-color: var(--color-current);
-    transform: scaleY(0);
-    transform-origin: top;
-    transition: transform var(--transition-speed);
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  background-color: var(--color-current);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform var(--transition-speed);
 }
 
 .link:hover {
-    background-color: var(--color-bg-sub);
-    transform: translateY(-2px);
-    opacity: 1;
+  background-color: var(--color-bg-sub);
+  transform: translateY(-2px);
+  opacity: 1;
 }
 
 .link:hover::before {
-    transform: scaleY(1);
+  transform: scaleY(1);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-current);
+  outline-offset: 3px;
+  background-color: var(--color-bg-sub);
+}
+
+.link:focus-visible::before {
+  transform: scaleY(1);
+}
+
+.link:hover .title,
+.link:focus-visible .title {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+.link:active {
+  transform: translateY(0);
 }
 
 .image {
-    width: 200px;
-    height: auto;
-    border-radius: var(--border-radius);
-    transition: transform var(--transition-speed);
+  width: 200px;
+  height: auto;
+  border-radius: var(--border-radius);
+  transition: transform var(--transition-speed);
+}
+
+.grid .link {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 0;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-main);
+  overflow: hidden;
+  height: 100%;
+}
+
+.grid .link::before {
+  top: 10px;
+  bottom: 10px;
+}
+
+.grid .link:hover {
+  background-color: var(--color-bg-sub);
+  border-color: var(--color-border-dark);
+}
+
+.grid .image {
+  width: 100%;
+  border-radius: 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.grid .content {
+  padding: 16px;
 }
 
 .link:hover .image {
-    transform: scale(1.03);
+  transform: scale(1.03);
 }
 
 .title {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+@media (max-width: 640px) {
+  .link {
+    display: block;
+    padding: 16px var(--spacing-sm);
+  }
+  .image {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid .link {
+    padding: 0;
+  }
+
+  .grid .image {
+    display: block;
+  }
+
+  .title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.4rem;
+  }
+
+  .meta {
     display: flex;
     align-items: center;
     gap: 16px;
-}
-
-
-@media (max-width: 640px) {
-    .link {
-        display: block;
-        padding: 16px var(--spacing-sm);
-    }
-    .image {
-        display: none;
-    }
-
-    .title {
-        font-size: 1rem;
-        font-weight: bold;
-        margin-bottom: 0.4rem;
-    }
-
-    .meta {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .link,
-    .image {
-        transition: none !important;
-    }
+  .link,
+  .image {
+    transition: none !important;
+  }
 
-    .link:hover {
-        transform: none;
-    }
+  .link:hover {
+    transform: none;
+  }
 }

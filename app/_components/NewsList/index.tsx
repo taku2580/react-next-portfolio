@@ -6,17 +6,22 @@ import Category from "../Category";
 import Date from "../Date";
 import { News } from "@/app/_libs/microcms";
 
-
 type Props = {
   news: News[];
+  variant?: "list" | "grid";
 };
 
-export default function NewsList({ news }: Props) {
+export default function NewsList({ news, variant = "list" }: Props) {
   if (news.length === 0) {
     return <p>記事がありません。</p>;
   }
+
+  const containerClassName = `${styles.listContainer}${
+    variant === "grid" ? ` ${styles.grid}` : ""
+  }`;
+
   return (
-    <ul>
+    <ul className={containerClassName}>
       {news.map((article) => (
         <li key={article.id} className={styles.list}>
           <Link href={`/news/${article.id}`} className={styles.link}>

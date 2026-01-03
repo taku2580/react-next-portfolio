@@ -1,55 +1,75 @@
 .container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    overflow: hidden;
-    padding : 100px 0;
+  position: relative;
+  display: grid;
+  place-items: center;
+  background-color: var(--color-bg-overlay);
+  color: var(--color-text-unpainted);
+  overflow: hidden;
+  padding: var(--spacing-xxl) var(--spacing-sm);
+  text-align: center;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: 920px;
+  width: 100%;
 }
 
 .title {
-    font-size: 3rem;
-    font-weight:bold;
-    text-align: center;
-    margin-bottom: 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: bold;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin: 18px auto 0;
+  background-color: var(--color-current);
+  border-radius: 999px;
 }
 
 .sub {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    justify-content: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin: var(--spacing-sm) 0 0;
+  font-size: var(--font-size-sm);
+  letter-spacing: 0.08em;
 }
 
 .sub::before {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 20px;
-    background-color: var(--color-text-unpainted);
+  content: "";
+  display: block;
+  height: 1px;
+  width: 20px;
+  background-color: var(--color-current);
 }
 
 .sub::after {
-    content: '';
-    display: block;
-    height: 1px;
-    width: 20px;
-    background-color: var(--color-text-unpainted);
+  content: "";
+  display: block;
+  height: 1px;
+  width: 20px;
+  background-color: var(--color-current);
 }
 
 .bgimg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 600px;
-    width: 100%;
-    object-fit: cover;
-    object-position: right;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: -1;
+  filter: saturate(0.95) contrast(1.05);
 }

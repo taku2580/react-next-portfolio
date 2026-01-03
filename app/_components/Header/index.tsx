@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./index.module.css";
 import Menu from "../Menu";
@@ -9,14 +8,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.left}>
         <Link href="/" className={styles.logoLink}>
-          <Image
-            src="/logo.svg"
-            alt="SIMPLE"
-            className={styles.logo}
-            width={348}
-            height={133}
-            priority
-          />
+          Portfolio
         </Link>
         <div className={styles.themeToggle}>
           <ThemeToggle />

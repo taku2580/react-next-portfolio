@@ -6,7 +6,7 @@ import Category from "@/app/_components/Category";
 import { NEWS_LIST_LIMIT } from "@/app/constants";
 import NewsTabs from "@/app/_components/NewsTabs";
 import SearchField from "@/app/_components/SearchField";
-import styles from "./page.module.css";
+import styles from "../../page.module.css";
 
 type Props = {
   params: {

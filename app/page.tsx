@@ -26,7 +26,7 @@ export default async function Home() {
         <div className={styles.heroInner}>
           <h1 className={styles.title}>Welcome to My Portfolio</h1>
           <p className={styles.subtitle}>
-            Design / Frontend / Minimal Motion
+            Thank you for visiting my portfolio website.
           </p>
 
           <div className={styles.scrollHint} aria-hidden="true">

@@ -50,7 +50,6 @@
 .subtitle {
   font-size: var(--font-size-lg);
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   opacity: 0.85;
   animation: fadeUp 900ms ease both;
 }

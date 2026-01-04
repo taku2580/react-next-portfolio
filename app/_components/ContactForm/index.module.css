@@ -43,15 +43,7 @@
   margin-top: 40px;
 }
 
-.button {
-  border: none;
-  background-color: var(--color-button-primary);
-  padding: 16px 40px;
-  font-size: 16px;
-  border-radius: 4px;
-  color: var(--color-text-unpainted);
-  cursor: pointer;
-}
+
 
 .success {
   background-color: var(--color-bg-sub);

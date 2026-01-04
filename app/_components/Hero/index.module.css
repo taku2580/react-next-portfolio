@@ -14,6 +14,7 @@
   z-index: 1;
   max-width: 920px;
   width: 100%;
+  animation: fadeUp 900ms ease both;
 }
 
 .title {
@@ -22,6 +23,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin: 0;
+  animation: fadeUp 700ms ease both;
 }
 
 .title::after {
@@ -42,6 +44,8 @@
   margin: var(--spacing-sm) 0 0;
   font-size: var(--font-size-sm);
   letter-spacing: 0.08em;
+  opacity: 0.85;
+  animation: fadeUp 900ms ease both;
 }
 
 .sub::before {
@@ -72,4 +76,36 @@
   justify-content: center;
   z-index: -1;
   filter: saturate(0.95) contrast(1.05);
+  transform: scale(1.02);
+  animation: heroZoom 1.4s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1.02);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bgimg,
+  .inner,
+  .title,
+  .sub {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -5,11 +5,16 @@ import type {
   MicroCMSListContent,
 } from "microcms-js-sdk";
 
+export type TextItem = {
+  fieldId: "TextItem";
+  item: string;
+};
+
 export type Profile = {
-  name: string;
-  position: string;
-  profile: string;
-  image: MicroCMSImage;
+  bio: string;
+  hobbies?: TextItem[];
+  studying?: TextItem[];
+  certifications?: TextItem[];
 } & MicroCMSListContent;
 
 export type Category = {

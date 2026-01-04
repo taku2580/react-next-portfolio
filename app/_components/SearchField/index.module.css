@@ -13,6 +13,14 @@
   max-width: 100%;
 }
 
+.search img {
+  display: block;
+}
+
+html[data-theme="dark"] .search img {
+  filter: invert(1);
+}
+
 .search:focus-within {
   border-color: #b3b3b3;
 }
@@ -29,4 +37,3 @@
   border: 1px solid transparent;
   color: var(--color-text-main);
 }
-

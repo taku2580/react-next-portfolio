@@ -1,7 +1,15 @@
 .date {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0.8rem 0;
-    font-size:1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+}
+
+.date img {
+  display: block;
+}
+
+html[data-theme="dark"] .date img {
+  filter: invert(1);
 }

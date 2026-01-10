@@ -10,6 +10,7 @@ type Props = {
   className?: string;
   ariaLabel?: string;
   disableLink?: boolean;
+  onClick?: () => void;
 };
 
 export default function HoverSwapLink({
@@ -19,6 +20,7 @@ export default function HoverSwapLink({
   className,
   ariaLabel,
   disableLink,
+  onClick,
 }: Props) {
   const classNames = `${styles.link} ${className ? `${className}` : ""}`;
 
@@ -34,7 +36,8 @@ export default function HoverSwapLink({
   }
 
   return (
-    <Link href={href} className={classNames} aria-label={ariaLabel ?? label}>
+    <Link href={href} 
+    className={classNames} aria-label={ariaLabel ?? label} onClick={onClick}>
       <span className={styles.text}>{label}</span>
       <span className={styles.hoverText} aria-hidden="true">
         {hoverLabel}

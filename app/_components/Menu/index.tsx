@@ -21,6 +21,7 @@ export default function Menu() {
               label="News"
               hoverLabel="ブログ・作品"
               className={styles.link}
+              onClick={close}
             />
           </li>
           <li>
@@ -29,6 +30,7 @@ export default function Menu() {
               label="Profile"
               hoverLabel="プロフィール"
               className={styles.link}
+              onClick={close}
             />
           </li>
           <li>
@@ -37,6 +39,7 @@ export default function Menu() {
               label="Contact"
               hoverLabel="お問い合わせ"
               className={styles.link}
+              onClick={close}
             />
           </li>
         </ul>

@@ -2,7 +2,7 @@ import { getProfileList } from "@/app/_libs/microcms";
 import { PROFILE_LIST_LIMIT } from "@/app/constants";
 import styles from "./page.module.css";
 
-export const revalidate = 60;
+export const revalidate = 0;
 
 const NAME = "中川 拓大";
 const BIRTHDAY = "8/18";

@@ -46,6 +46,11 @@ export const getProfileList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Profile>({
     endpoint: "profile",
     queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
   });
   return listData;
 };

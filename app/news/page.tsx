@@ -6,7 +6,13 @@ import { NEWS_LIST_LIMIT } from "@/app/constants";
 import NewsTabs from "../_components/NewsTabs";
 import styles from "./page.module.css";
 
-export default async function Page() {
+type Props = {
+  searchParams: {
+    dk?: string;
+  };
+};
+
+export default async function Page({ searchParams }: Props) {
   const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
   });

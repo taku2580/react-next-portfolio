@@ -7,8 +7,17 @@ export const revalidate = 60;
 const NAME = "中川 拓大";
 const BIRTHDAY = "8/18";
 
-export default async function Page() {
-  const data = await getProfileList({ limit: PROFILE_LIST_LIMIT });
+type Props = {
+  searchParams: {
+    dk?: string;
+  };
+};
+
+export default async function Page({ searchParams }: Props) {
+  const data = await getProfileList({
+    limit: PROFILE_LIST_LIMIT,
+    draftKey: searchParams.dk,
+  });
 
   if (data.contents.length === 0) {
     return <p className={styles.empty}>プロフィールが登録されていません</p>;

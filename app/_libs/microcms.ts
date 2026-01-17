@@ -47,6 +47,7 @@ export const getProfileList = async (queries?: MicroCMSQueries) => {
     endpoint: "profile",
     queries,
     customRequestInit: {
+      cache: queries?.draftKey === undefined ? "force-cache" : "no-store",
       next: {
         revalidate: queries?.draftKey === undefined ? 60 : 0,
       },
@@ -72,6 +73,7 @@ export const getNewsDetail = async (
     contentId,
     queries,
     customRequestInit: {
+      cache: queries?.draftKey === undefined ? "force-cache" : "no-store",
       next: {
         revalidate: queries?.draftKey === undefined ? 60 : 0,
       },

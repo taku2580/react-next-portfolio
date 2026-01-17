@@ -8,6 +8,7 @@ import type {
 export type TextItem = {
   fieldId: "TextItem";
   item: string;
+  logo?: MicroCMSImage; // 学習中の言語ロゴ（studying用）
 };
 
 export type Profile = {

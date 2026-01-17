@@ -1,6 +1,7 @@
 import { getProfileList } from "@/app/_libs/microcms";
 import { PROFILE_LIST_LIMIT } from "@/app/constants";
 import styles from "./page.module.css";
+import Image from "next/image";
 
 export const revalidate = 60;
 
@@ -65,11 +66,23 @@ export default async function Page({ searchParams }: Props) {
         <div className={styles.card}>
           <h3 className={styles.sectionTitle}>Studying</h3>
           <ul className={styles.tags}>
-            {studying.map((t: string, i: number) => (
-              <li key={`${t}-${i}`} className={styles.tag}>
-                {t}
-              </li>
-            ))}
+            {studying.map((t: string, i: number) => {
+              const item = profile.studying?.[i];
+              return (
+                <li key={`${t}-${i}`} className={styles.tag}>
+                  {item?.logo && (
+                    <Image
+                      src={item.logo.url}
+                      alt=""
+                      width={16}
+                      height={16}
+                      className={styles.tagLogo}
+                    />
+                  )}
+                  {t}
+                </li>
+              );
+            })}
           </ul>
         </div>
 

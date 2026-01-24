@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#課題の紹介
+##TOP
+上部にメニューを配置し、各ページにスムーズに遷移できるようにしています。
+また、最新のニュース記事や各ページのコンテンツカードを配置し、サイトの全体の構成が把握できるようにしました。
+##自己紹介のページ
+自分のプロフィールを載せたページです。
+名前と誕生日以外はmicroCMSに連携しています。
 
-## Getting Started
+#ブログ一覧のページ
+microCMSから受け取ったニュース記事を表示しています。
+タブや検索機能からニュース記事の絞り込みが可能です。
 
-First, run the development server:
+##ブログ詳細のページ
+選択した記事の詳細を表示しています。
+カテゴリーボタンや「ニュース一覧へ戻る」から他ページへ遷移できます。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#一番見てほしいところ
+・メニューをホバーした時にそのページの説明が切り替わって表示されるところ。
+・ダークモードへの切り替え
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#力を入れたところ
+##実装面
+・カテゴリータブによる記事の絞り込み
+・ダークモードへの切り替えボタン
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##デザイン面
+・ダークモードへと切り替える際に、ただ色を反転するのではなくページ全体のデザインを壊さないようにしたこと。
+・TOPページを開いた時に、画面全体に背景画像が出るようにした事

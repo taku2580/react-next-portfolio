@@ -1,3 +1,9 @@
+#Read me
+
+#About me
+サイトURL:https://react-next-portfolio-roan.vercel.app/
+このサイトはReact/Node.jsで制作した自分自身のポートフォリオサイトです。
+
 #課題の紹介
 ##TOP
 上部にメニューを配置し、各ページにスムーズに遷移できるようにしています。

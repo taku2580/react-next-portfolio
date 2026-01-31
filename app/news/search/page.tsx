@@ -3,6 +3,11 @@ import { NEWS_LIST_LIMIT } from "@/app/constants";
 import NewsList from "@/app/_components/NewsList";
 import SearchField from "@/app/_components/SearchField";
 import NewsTabs from "@/app/_components/NewsTabs";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "検索結果",
+};
 
 type Props = {
   searchParams: {

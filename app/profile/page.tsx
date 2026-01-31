@@ -2,6 +2,11 @@ import { getProfileList } from "@/app/_libs/microcms";
 import { PROFILE_LIST_LIMIT } from "@/app/constants";
 import styles from "./page.module.css";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "プロフィール",
+};
 
 export const revalidate = 60;
 

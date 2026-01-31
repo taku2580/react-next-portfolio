@@ -1,5 +1,10 @@
 import styles from "./page.module.css";
 import ContactForm from "@/app/_components/ContactForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "お問い合わせ",
+};
 
 export default function Page() {
     return (

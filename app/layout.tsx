@@ -2,7 +2,16 @@ import Script from "next/script";
 import "./globals.css";
 import Header from "./_components/Header";
 import Footer from "./_components/Footer";
+import type { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title:{
+    template: "%s | 中川拓大のポートフォリオサイト",
+    default: "中川拓大のポートフォリオサイト",
+  },
+  description: "中川拓大のポートフォリオサイトです。",
+}
 
 export default function RootLayout({
   children,

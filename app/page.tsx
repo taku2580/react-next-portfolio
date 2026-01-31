@@ -5,6 +5,11 @@ import NewsList from "@/app/_components/NewsList";
 import ButtonLink from "@/app/_components/ButtonLink";
 import { getNewsList } from "@/app/_libs/microcms";
 import { TOP_NEWS_LIMIT } from "./constants";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ホーム",
+};
 
 export const revalidate = 60;
 

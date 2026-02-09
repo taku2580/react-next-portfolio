@@ -7,10 +7,10 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title:{
-    template: "%s | 中川拓大のポートフォリオサイト",
-    default: "中川拓大のポートフォリオサイト",
+    template: "%s | ポートフォリオサイト",
+    default: "ポートフォリオサイト",
   },
-  description: "中川拓大のポートフォリオサイトです。",
+  description: "ポートフォリオサイトです。",
 }
 
 export default function RootLayout({
